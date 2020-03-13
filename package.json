@@ -1,8 +1,8 @@
 {
   "name": "rits-dajare.github.io",
   "version": "1.0.0",
+  "private": true,
   "repository": "git@github.com:rits-dajare/rits-dajare.github.io.git",
-  "author": "ygkn <2000ygkn0713@gmail.com>",
   "license": "MIT",
-  "private": true
+  "author": "ygkn <2000ygkn0713@gmail.com>"
 }
