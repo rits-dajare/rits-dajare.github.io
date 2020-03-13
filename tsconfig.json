@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "umd",
+    "jsx": "react",
+    "lib": ["es2020", "DOM"],
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noEmit": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "assumeChangesOnlyAffectDirectDependencies": true,
+    "baseUrl": ".",
+    "paths": { "*": ["types/*"], "src/*": ["src/*"], "types/*": ["types/*"] },
+    "typeRoots": ["types", "node_modules/@types"]
+  },
+  "watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriority"
+  },
+  "exclude": ["node_modules", "public", ".cache"]
+}

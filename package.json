@@ -4,5 +4,11 @@
   "private": true,
   "repository": "git@github.com:rits-dajare/rits-dajare.github.io.git",
   "license": "MIT",
-  "author": "ygkn <2000ygkn0713@gmail.com>"
+  "author": "ygkn <2000ygkn0713@gmail.com>",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3"
+  }
 }
