@@ -1,5 +1,5 @@
 declare module '@theme-ui/presets' {
-  import { Theme } from 'theme-ui';
+  import { Theme } from '@theme-ui/css';
 
   export const base: Theme;
   export const system: Theme;
