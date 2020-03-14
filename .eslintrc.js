@@ -19,5 +19,27 @@ module.exports = {
     browser: true,
     node: true
   },
-  rules: { 'prettier/prettier': 'error' }
+  rules: {
+    'prettier/prettier': 'error',
+    'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+        mjs: 'never'
+      }
+    ],
+    'import/no-named-as-default': 'off',
+    'react/prop-types': 'off'
+  },
+
+  settings: {
+    'import/resolver': {
+      typescript: {}
+    }
+  }
 };
