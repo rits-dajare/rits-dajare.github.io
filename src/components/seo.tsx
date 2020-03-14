@@ -84,7 +84,7 @@ const SEO: React.FC<Props> = ({
   const banner = useAnyImage('banner.png');
 
   const seo = {
-    title: title || metadata.title,
+    title: title !== '' ? `${title} | ${metadata.title}` : metadata.title ?? '',
     description: description || metadata.description,
     url: `${metadata.url}${pathname || ``}`,
     image: `${metadata.url}${image || banner?.src}`
