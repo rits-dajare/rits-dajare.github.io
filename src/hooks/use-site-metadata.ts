@@ -14,7 +14,7 @@ type Props = DeepReadonly<{
 }>;
 
 /**
- * ex. const {siteTitle, siteUrl} = useSiteMetadata();
+ * @example const {title, siteUrl} = useSiteMetadata();
  */
 export default (): Props['site']['siteMetadata'] => {
   const data = useStaticQuery<Props>(graphql`
