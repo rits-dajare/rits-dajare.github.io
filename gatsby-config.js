@@ -3,7 +3,7 @@ const siteMetadata = {
   description: '立命館ダジャレサークルのWebサイトです',
   shortName: 'RDC',
   author: '@rits_dajare',
-  siteUrl: 'https://rits-dajare.github.io/'
+  siteUrl: 'https://rits-dajare.github.io'
 };
 
 module.exports = {
