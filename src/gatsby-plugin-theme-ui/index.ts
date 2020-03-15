@@ -18,12 +18,15 @@ export const theme: Theme = {
   text: {
     paragraph: {
       fontSize: [0, 1, 2, 3],
-      margin: 3
+      marginY: 3
     },
     heading: {
-      textAlign: 'center',
-      margin: 4,
-      fontSize: [3, 4, 5, 6]
+      paddingY: 2,
+      marginY: '1em',
+      fontSize: [3, 4, 5, 6],
+      borderBottomStyle: 'solid',
+      borderBottomWidth: 2,
+      borderBottomColor: 'primary'
     }
   },
   buttons: {
