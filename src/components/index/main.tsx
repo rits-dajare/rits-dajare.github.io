@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Box, Heading, css } from 'theme-ui';
+import { Timeline } from 'react-twitter-widgets';
 import Link from '../link';
 import Paragraph from '../paragraph';
-import { Timeline } from 'react-twitter-widgets';
 
 type Props = { className?: string };
 

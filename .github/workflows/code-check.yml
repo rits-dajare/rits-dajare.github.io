@@ -1,0 +1,44 @@
+name: Code Check
+
+on:
+  push:
+    branches:
+      - source
+  pull_request:
+    branches:
+      - source
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 13
+      - name: Install Dependencies
+        run: yarn install
+      - name: Lint
+        run: yarn lint
+  type-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 13
+      - name: Install Dependencies
+        run: yarn install
+      - name: Type Check
+        run: yarn type-check
+  code-style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 13
+      - name: Install Dependencies
+        run: yarn install
+      - name: Format Check
+        run: yarn format-check
