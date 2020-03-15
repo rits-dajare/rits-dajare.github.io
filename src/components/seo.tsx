@@ -80,14 +80,16 @@ const SEO: React.FC<Props> = ({
 }) => {
   const metadata = useSiteMetadata() || {};
   const buildTime = useSiteBuildTime();
-  const icon = useAnyImage('icon.png');
-  const banner = useAnyImage('banner.png');
+  const icon = useAnyImage('icon.svg');
+  const twitterCard = useAnyImage('twitter-card.png');
+  const ogp = useAnyImage('ogp.png');
 
   const seo = {
     title: title !== '' ? `${title} | ${metadata.title}` : metadata.title ?? '',
     description: description || metadata.description,
     url: `${metadata.siteUrl}${pathname || ``}`,
-    image: `${metadata.siteUrl}${image || banner?.src}`
+    image: `${metadata.siteUrl}${image || ogp?.src}`,
+    twitterCardImage: `${metadata.siteUrl}${image || twitterCard?.src}`
   };
 
   // JSON+LD configurations
@@ -111,7 +113,7 @@ const SEO: React.FC<Props> = ({
       url: metadata.siteUrl,
       image: {
         '@type': 'ImageObject',
-        url: banner?.src,
+        url: twitterCard?.src,
         width: 60,
         height: 60
       }
@@ -212,7 +214,7 @@ const SEO: React.FC<Props> = ({
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:url" content={seo.url} />
       <meta name="twitter:description" content={seo.description} />
-      <meta name="twitter:image" content={seo.image} />
+      <meta name="twitter:image" content={seo.twitterCardImage} />
       <meta name="twitter:image:alt" content={seo.description} />
       <meta name="twitter:creator" content={metadata.author} />
       <script type="application/ld+json">
