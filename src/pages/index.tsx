@@ -1,11 +1,12 @@
 import React from 'react';
 import { SEO } from 'src/components';
-import { Heading } from 'theme-ui';
+import { Header, Main } from 'src/components/index/index';
 
 const IndexPage: React.FC = () => (
   <>
     <SEO />
-    <Heading>Hello World</Heading>
+    <Header />
+    <Main />
   </>
 );
 
