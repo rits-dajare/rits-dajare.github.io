@@ -8,7 +8,7 @@ type Props = DeepReadonly<{
       description: string;
       shortName: string;
       author: string;
-      url: string;
+      siteUrl: string;
     };
   }>;
 }>;
@@ -25,7 +25,7 @@ export default (): Props['site']['siteMetadata'] => {
           description
           shortName
           author
-          url
+          siteUrl
         }
       }
     }

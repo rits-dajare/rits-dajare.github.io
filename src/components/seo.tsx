@@ -86,8 +86,8 @@ const SEO: React.FC<Props> = ({
   const seo = {
     title: title !== '' ? `${title} | ${metadata.title}` : metadata.title ?? '',
     description: description || metadata.description,
-    url: `${metadata.url}${pathname || ``}`,
-    image: `${metadata.url}${image || banner?.src}`
+    url: `${metadata.siteUrl}${pathname || ``}`,
+    image: `${metadata.siteUrl}${image || banner?.src}`
   };
 
   // JSON+LD configurations
@@ -102,13 +102,13 @@ const SEO: React.FC<Props> = ({
         width: 60,
         height: 60
       },
-      url: metadata.url
+      url: metadata.siteUrl
     },
     {
       '@type': 'thing',
       name: metadata.author,
       sameas: metadata.title,
-      url: metadata.url,
+      url: metadata.siteUrl,
       image: {
         '@type': 'ImageObject',
         url: banner?.src,

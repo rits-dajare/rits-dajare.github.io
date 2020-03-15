@@ -3,7 +3,7 @@ const siteMetadata = {
   description: '立命館ダジャレサークルのWebサイトです',
   shortName: 'RDC',
   author: '@rits_dajare',
-  url: 'https://rits-dajare.github.io/'
+  siteUrl: 'https://rits-dajare.github.io/'
 };
 
 module.exports = {
@@ -44,15 +44,15 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-react-helmet-canonical-urls',
       options: {
-        siteUrl: siteMetadata.url
+        siteUrl: siteMetadata.siteUrl
       }
     },
     'gatsby-plugin-advanced-sitemap',
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: siteMetadata.url,
-        sitemap: `${siteMetadata.url}/sitemap.xml`,
+        host: siteMetadata.siteUrl,
+        sitemap: `${siteMetadata.siteUrl}/sitemap.xml`,
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
