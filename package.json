@@ -19,6 +19,11 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/free-regular-svg-icons": "^5.12.1",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "@mdx-js/mdx": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
     "@theme-ui/css": "^0.3.1",
@@ -48,6 +53,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-twitter-widgets": "^1.7.1",
     "theme-ui": "^0.3.1",
     "utility-types": "^3.10.0"
   },
