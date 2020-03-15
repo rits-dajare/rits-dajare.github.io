@@ -14,6 +14,7 @@ module.exports = {
     'gatsby-plugin-emotion',
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-catch-links',
+    'gatsby-plugin-layout',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {

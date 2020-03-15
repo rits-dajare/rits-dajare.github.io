@@ -44,10 +44,7 @@ const Component: React.FC<Props> = ({ className }) => (
 );
 
 const Main = styled(Component)`
-  margin: auto;
   ${css({ marginY: 4 })};
-  width: 100vh;
-  max-width: 100vw;
   .tweets {
     max-width: 600px;
     margin: 0 auto;

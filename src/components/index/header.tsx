@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Text, css } from 'theme-ui';
+import { css } from 'theme-ui';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { keyframes } from '@emotion/core';
@@ -84,11 +84,9 @@ const Component: React.FC<Props> = ({ className }) => (
         fill="black"
       />
     </svg>
-    <Link to="#main" className="no-underline">
-      <Text className="scroll-down">
-        <FontAwesomeIcon icon={faChevronDown} />
-        &nbsp; SCROLL DOWN
-      </Text>
+    <Link to="#main" className="scroll-down">
+      <FontAwesomeIcon icon={faChevronDown} />
+      &nbsp; SCROLL DOWN
     </Link>
   </div>
 );
@@ -99,23 +97,14 @@ const blink = keyframes`
 `;
 
 const Header = styled(Component)`
-  height: 100vh;
-  max-height: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  svg {
-    flex: 1 1;
-  }
-
-  .no-underline {
-    text-decoration: none;
-  }
-
   .scroll-down {
-    ${css({ color: 'muted', padding: 4 })}
-    text-align: center;
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    height: 5em;
+    ${css({ color: 'muted' })}
+    align-items: center;
+    justify-content: center;
     animation: ${blink} 1s linear infinite alternate;
     &:hover {
       animation: none;
