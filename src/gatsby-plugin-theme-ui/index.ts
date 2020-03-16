@@ -26,6 +26,7 @@ export const theme: Theme = {
       fontSize: [3, 4, 5, 6]
     }
   },
+  sizes: { container: '100vh' },
   buttons: {
     primary: {
       borderRadius: '2px',
