@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { Box, Heading, css } from 'theme-ui';
 import { Timeline } from 'react-twitter-widgets';
 import Link from '../link';
 import Paragraph from '../paragraph';
 
-type Props = { className?: string };
+type Props = { className?: string; mounted: boolean };
 
-const Component: React.FC<Props> = ({ className }) => (
+const Component: React.FC<Props> = ({ className, mounted }) => (
   <Box as="main" id="main" className={className}>
     <Heading>立命館ダジャレサークルって何？</Heading>
     <Paragraph>
@@ -35,20 +35,34 @@ const Component: React.FC<Props> = ({ className }) => (
 
     <Heading>部員のダジャレが見たい</Heading>
     <div className="tweets">
-      <Timeline
-        dataSource={{ sourceType: 'profile', screenName: 'rits_dajare' }}
-        options={{ height: 600 }}
-      />
+      {mounted && (
+        <Timeline
+          dataSource={{ sourceType: 'profile', screenName: 'rits_dajare' }}
+          options={{ height: 600 }}
+        />
+      )}
     </div>
   </Box>
 );
 
-const Main = styled(Component)`
+const StyledComponent = styled(Component)`
   ${css({ marginY: 4 })};
   .tweets {
     max-width: 600px;
+    height: 600px;
     margin: 0 auto;
   }
 `;
+
+const Main: React.FC = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    return (): void => setMounted(false);
+  });
+
+  return <StyledComponent mounted={mounted} />;
+};
 
 export default Main;
