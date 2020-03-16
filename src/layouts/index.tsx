@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container } from 'theme-ui';
-import styled from '@emotion/styled';
+import Footer from './footer';
 
-const Component: React.FC<{ className?: string }> = ({
-  children,
-  className
-}) => <Container className={className}>{children}</Container>;
-
-const Layout = styled(Component)``;
+const Layout: React.FC = ({ children }) => (
+  <Container>
+    {children}
+    <Footer />
+  </Container>
+);
 
 export default Layout;
