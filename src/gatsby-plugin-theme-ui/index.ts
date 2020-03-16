@@ -29,6 +29,7 @@ export const theme: Theme = {
       borderBottomColor: 'primary'
     }
   },
+  sizes: { container: '100vh' },
   buttons: {
     primary: {
       borderRadius: '2px',
