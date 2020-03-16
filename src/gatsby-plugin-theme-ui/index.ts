@@ -30,7 +30,7 @@ export const theme: Theme = {
     }
   },
   buttons: {
-    primary: {
+    hero: {
       borderRadius: '2px',
       border: 'none',
       color: colors.white,
