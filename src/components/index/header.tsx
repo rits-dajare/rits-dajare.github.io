@@ -4,7 +4,8 @@ import { css } from 'theme-ui';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { keyframes } from '@emotion/core';
-import { Link } from 'gatsby';
+
+import Link from '../link';
 
 type Props = { className?: string };
 
