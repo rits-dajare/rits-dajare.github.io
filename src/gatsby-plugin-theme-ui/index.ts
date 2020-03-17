@@ -1,7 +1,12 @@
 import { Theme } from '@theme-ui/css';
 import { base } from '@theme-ui/presets';
 
-const colors = { black: '#040404', white: '#fafafa', rits: '#990000' };
+const colors = {
+  black: '#040404',
+  white: '#fafafa',
+  rits: '#990000',
+  twitter: '#1da1f2'
+};
 
 export const theme: Theme = {
   ...base,
@@ -13,7 +18,8 @@ export const theme: Theme = {
     background: colors.white,
     primary: colors.rits,
     secondary: colors.white,
-    muted: `${colors.black}a0`
+    muted: `${colors.black}a0`,
+    twitter: colors.twitter
   },
   text: {
     paragraph: {
@@ -31,12 +37,24 @@ export const theme: Theme = {
   },
   sizes: { container: '100vh' },
   buttons: {
-    primary: {
+    hero: {
       borderRadius: '2px',
       border: 'none',
       color: colors.white,
       paddingY: 3,
       paddingX: 4
+    },
+    share: {
+      color: 'white',
+      display: 'inline-block',
+      textAlign: 'center',
+      lineHeight: 'inherit',
+      textDecoration: 'none',
+      fontSize: 'inherit',
+      px: 3,
+      py: 2,
+      border: 0,
+      borderRadius: 4
     }
   },
   styles: {
