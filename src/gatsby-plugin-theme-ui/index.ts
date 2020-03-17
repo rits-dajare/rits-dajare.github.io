@@ -57,6 +57,11 @@ export const theme: Theme = {
       borderRadius: 4
     }
   },
+  layout: {
+    container: {
+      paddingX: 4
+    }
+  },
   styles: {
     root: {
       fontFamily: 'body',
