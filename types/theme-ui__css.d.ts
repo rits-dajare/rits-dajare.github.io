@@ -536,6 +536,7 @@ export interface Theme {
   shadows?: ObjectOrArray<CSS.BoxShadowProperty>
   zIndices?: ObjectOrArray<CSS.ZIndexProperty>
   buttons?: ObjectOrArray<SystemCssProperties>
+  layout?:  ObjectOrArray<SystemCssProperties>
   colorStyles?: ObjectOrArray<SystemCssProperties>
   textStyles?: ObjectOrArray<SystemCssProperties>
   text?: ObjectOrArray<SystemCssProperties>
