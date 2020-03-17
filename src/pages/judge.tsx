@@ -38,7 +38,7 @@ const Component: React.FC<ComponentProps> = ({
 
   const shareText =
     scoreStar &&
-    `ダジャレ：${text}\nスコア：${scoreStar}\n\n#ダジャレ判定 by @rits_dajare\n\nhttps://rits-dajare.github.io/judgefi`;
+    `ダジャレ：${text}\nスコア：${scoreStar}\n\n#ダジャレ判定 by @rits_dajare\n\nhttps://rits-dajare.github.io/judge`;
 
   return (
     <Box as="main" id="main" className={className}>
