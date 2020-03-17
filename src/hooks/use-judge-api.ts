@@ -12,7 +12,7 @@ export type ReturnValue = {
   isSubmitting: boolean;
   judge: (text: JudgeText) => void;
   result: IntegratedResult | null;
-  error: Error | null;
+  error: string | Error | null;
 };
 
 const baseURL =
@@ -28,11 +28,14 @@ const fetchApi = async <T extends keyof Results>(
   type: T,
   text: string
 ): Promise<Results[T]> => {
-  const url = `${baseURL}/joke/${type}?joke=${text}`;
+  const url = `${baseURL}/joke/${type}?joke=${encodeURIComponent(text)}`;
 
   const result = await fetch(url);
   return result.json();
 };
+
+export const validate = (text: string): boolean =>
+  text.replace(/\s/g, '').length !== 0;
 
 const useJudgeApi = (): ReturnValue => {
   const [isSubmitting, setIsSubmitting] = useState<ReturnValue['isSubmitting']>(
@@ -57,7 +60,7 @@ const useJudgeApi = (): ReturnValue => {
       fetchApi('evaluate', text),
       fetchApi('reading', text)
     ])
-      .then((...results) => {
+      .then(results => {
         const integratedResult = results.reduce<Partial<IntegratedResult>>(
           (previous, current) => ({ ...previous, ...current }),
           {}
