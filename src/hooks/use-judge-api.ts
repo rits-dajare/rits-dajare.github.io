@@ -15,7 +15,8 @@ export type ReturnValue = {
   error: Error | null;
 };
 
-const baseURL = 'http://118.27.17.68:8080';
+const baseURL =
+  'https://script.google.com/macros/s/AKfycbz6gJafNJO-Q8R5fqOP5XiklkVqeJAaePpDTcHIowR4JSxkRqr_/exec?url=http://abelab.dev:8080';
 
 export type Results = {
   judge: JudgeResult;
