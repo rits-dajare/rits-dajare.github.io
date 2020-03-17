@@ -9,6 +9,10 @@ type Props = { className?: string };
 
 const Component: React.FC<Props> = ({ className }) => (
   <Box as="main" id="main" className={className}>
+    <Link to="/judge" className="go-to-judge">
+      ダジャレを判定する！
+    </Link>
+
     <Heading>立命館ダジャレサークルって何？</Heading>
     <Paragraph>
       立命館ダジャレサークルは、「面白いダジャレ」とはなにかを研究し、ダジャレを創作する団体です。
@@ -45,6 +49,19 @@ const Component: React.FC<Props> = ({ className }) => (
 
 const Main = styled(Component)`
   ${css({ marginY: 4 })};
+  display: flex;
+  flex-direction: column;
+
+  .go-to-judge {
+    margin: auto;
+    text-decoration: none;
+    ${css({ variant: 'buttons.hero', backgroundColor: 'primary', marginY: 3 })}
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
   .tweets {
     max-width: 600px;
     margin: 0 auto;
