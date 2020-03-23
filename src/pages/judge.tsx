@@ -36,9 +36,10 @@ const Component: React.FC<ComponentProps> = ({
     result &&
     `${'★'.repeat(result.score)}${'☆'.repeat(Math.ceil(5 - result.score))}`;
 
-  const shareText =
-    scoreStar &&
-    `ダジャレ：${text}\nスコア：${scoreStar}\n\n#ダジャレ判定 by @rits_dajare\n\nhttps://rits-dajare.github.io/judge`;
+  const shareText = !result?.is_joke
+    ? `ダジャレ：${text}\nダジャレと判定できませんでした。\n\n#ダジャレ判定 by @rits_dajare\n\nhttps://rits-dajare.github.io/judge`
+    : scoreStar &&
+      `ダジャレ：${text}\nスコア：${scoreStar}\n\n#ダジャレ判定 by @rits_dajare\n\nhttps://rits-dajare.github.io/judge`;
 
   return (
     <Box as="main" id="main" className={className}>
@@ -85,9 +86,7 @@ const Component: React.FC<ComponentProps> = ({
           )}
         </Box>
       )}
-      {result?.is_joke && shareText && (
-        <ShareButton sns="twitter" text={shareText} />
-      )}
+      {result && shareText && <ShareButton sns="twitter" text={shareText} />}
       {error && (
         <Message>
           {/* eslint-disable no-nested-ternary */}
