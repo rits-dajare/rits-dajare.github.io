@@ -54,7 +54,7 @@
     "graphql": "14.6.0",
     "react": "16.13.0",
     "react-dom": "16.13.0",
-    "react-helmet": "5.2.1",
+    "react-helmet": "6.0.0",
     "react-twitter-widgets": "1.7.1",
     "ress": "2.0.4",
     "smooth-scroll": "16.1.2",
