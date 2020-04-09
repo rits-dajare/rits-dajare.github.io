@@ -35,7 +35,7 @@ export const theme: Theme = {
       borderBottomColor: 'primary'
     }
   },
-  sizes: { container: '100vh' },
+  sizes: { container: '800px' },
   buttons: {
     hero: {
       borderRadius: '2px',
