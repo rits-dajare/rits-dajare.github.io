@@ -51,7 +51,7 @@
     "gatsby-remark-relative-images": "0.3.0",
     "gatsby-source-filesystem": "2.1.56",
     "gatsby-transformer-sharp": "2.3.19",
-    "graphql": "14.6.0",
+    "graphql": "15.0.0",
     "react": "16.13.0",
     "react-dom": "16.13.0",
     "react-helmet": "5.2.1",
