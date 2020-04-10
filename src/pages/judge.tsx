@@ -32,9 +32,9 @@ const Component: React.FC<ComponentProps> = ({
   className,
   inputTextRef,
 }) => {
+  const scoreInt = Math.ceil(result?.score ?? 0);
   const scoreStar =
-    result &&
-    `${'★'.repeat(result.score)}${'☆'.repeat(Math.ceil(5 - result.score))}`;
+    result && `${'★'.repeat(scoreInt)}${'☆'.repeat(5 - scoreInt)}`;
 
   const shareText = !result?.is_joke
     ? `ダジャレ：${text}\nダジャレと判定できませんでした。\n\n#ダジャレ判定 by @rits_dajare\n\nhttps://rits-dajare.github.io/judge`
