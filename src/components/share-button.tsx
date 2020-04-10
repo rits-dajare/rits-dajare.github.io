@@ -9,11 +9,11 @@ import Link from './link';
 export type SNS = 'twitter';
 
 const SNSName = {
-  twitter: 'Twitter'
+  twitter: 'Twitter',
 } as const;
 
 const SNSIcon = {
-  twitter: faTwitter
+  twitter: faTwitter,
 } as const;
 
 const getShareURL = (text: string, sns: SNS): string => {

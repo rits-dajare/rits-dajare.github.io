@@ -3,7 +3,7 @@ import {
   IntegratedResult,
   JudgeResult,
   EvaluateResult,
-  ReadingResult
+  ReadingResult,
 } from 'src/types/api';
 
 export type JudgeText = string;
@@ -58,9 +58,9 @@ const useJudgeApi = (): ReturnValue => {
     Promise.all([
       fetchApi('judge', text),
       fetchApi('evaluate', text),
-      fetchApi('reading', text)
+      fetchApi('reading', text),
     ])
-      .then(results => {
+      .then((results) => {
         const integratedResult = results.reduce<Partial<IntegratedResult>>(
           (previous, current) => ({ ...previous, ...current }),
           {}
@@ -68,7 +68,7 @@ const useJudgeApi = (): ReturnValue => {
         setIsSubmitting(false);
         setResult(integratedResult as IntegratedResult);
       })
-      .catch(e => {
+      .catch((e) => {
         setError(e);
       });
 

@@ -5,7 +5,7 @@ const colors = {
   black: '#040404',
   white: '#fafafa',
   rits: '#990000',
-  twitter: '#1da1f2'
+  twitter: '#1da1f2',
 };
 
 export const theme: Theme = {
@@ -19,12 +19,12 @@ export const theme: Theme = {
     primary: colors.rits,
     secondary: colors.white,
     muted: `${colors.black}a0`,
-    twitter: colors.twitter
+    twitter: colors.twitter,
   },
   text: {
     paragraph: {
       fontSize: [0, 1, 2, 3],
-      marginY: 3
+      marginY: 3,
     },
     heading: {
       paddingY: 2,
@@ -32,8 +32,8 @@ export const theme: Theme = {
       fontSize: [3, 4, 5, 6],
       borderBottomStyle: 'solid',
       borderBottomWidth: 2,
-      borderBottomColor: 'primary'
-    }
+      borderBottomColor: 'primary',
+    },
   },
   sizes: { container: '800px' },
   buttons: {
@@ -42,7 +42,7 @@ export const theme: Theme = {
       border: 'none',
       color: colors.white,
       paddingY: 3,
-      paddingX: 4
+      paddingX: 4,
     },
     share: {
       color: 'white',
@@ -54,28 +54,28 @@ export const theme: Theme = {
       px: 3,
       py: 2,
       border: 0,
-      borderRadius: 4
-    }
+      borderRadius: 4,
+    },
   },
   layout: {
     container: {
-      paddingX: 4
-    }
+      paddingX: 4,
+    },
   },
   styles: {
     root: {
       fontFamily: 'body',
-      fontWeight: 'body'
+      fontWeight: 'body',
     },
     a: {
       textDecoration: 'underline',
       color: 'primary',
       transition: 'opacity 0.2s',
       '&:hover': {
-        opacity: 0.5
-      }
-    }
-  }
+        opacity: 0.5,
+      },
+    },
+  },
 };
 
 export default theme;
