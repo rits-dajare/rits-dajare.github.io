@@ -3,7 +3,7 @@ const siteMetadata = {
   description: '立命館ダジャレサークルのWebサイトです',
   shortName: 'RDC',
   author: '@rits_dajare',
-  siteUrl: 'https://rits-dajare.github.io'
+  siteUrl: 'https://rits-dajare.github.io',
 };
 
 module.exports = {
@@ -21,8 +21,8 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`
-      }
+        path: `${__dirname}/src/images`,
+      },
     },
     {
       resolve: 'gatsby-plugin-mdx',
@@ -35,18 +35,18 @@ module.exports = {
             options: {
               maxWidth: 1400,
               quality: 90,
-              linkImagesToOriginal: true
-            }
-          }
-        ]
-      }
+              linkImagesToOriginal: true,
+            },
+          },
+        ],
+      },
     },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-react-helmet-canonical-urls',
       options: {
-        siteUrl: siteMetadata.siteUrl
-      }
+        siteUrl: siteMetadata.siteUrl,
+      },
     },
     'gatsby-plugin-advanced-sitemap',
     {
@@ -54,14 +54,14 @@ module.exports = {
       options: {
         host: siteMetadata.siteUrl,
         sitemap: `${siteMetadata.siteUrl}/sitemap.xml`,
-        policy: [{ userAgent: '*', allow: '/' }]
-      }
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
     },
     {
       resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {
-        openAnalyzer: false
-      }
+        openAnalyzer: false,
+      },
     },
     // gatsby-plugin-manifest should be described before gatsby-plugin-offline
     {
@@ -76,10 +76,10 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#ffffff',
         display: 'standalone',
-        icon: './src/images/icon.svg'
+        icon: './src/images/icon.svg',
         /* eslint-enable */
-      }
+      },
     },
-    'gatsby-plugin-offline'
-  ]
+    'gatsby-plugin-offline',
+  ],
 };

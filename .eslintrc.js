@@ -4,23 +4,22 @@ module.exports = {
     'airbnb',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/typescript',
-    'plugin:prettier/recommended',
-    'prettier/@typescript-eslint'
+    'prettier',
+    'prettier/@typescript-eslint',
   ],
-  plugins: ['@typescript-eslint', 'prettier', 'react-hooks'],
+  plugins: ['@typescript-eslint', 'react-hooks'],
   parserOptions: {
     ecmaVersion: 2019,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   rules: {
-    'prettier/prettier': 'error',
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
     'import/extensions': [
       'error',
@@ -30,16 +29,16 @@ module.exports = {
         jsx: 'never',
         ts: 'never',
         tsx: 'never',
-        mjs: 'never'
-      }
+        mjs: 'never',
+      },
     ],
     'import/no-named-as-default': 'off',
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
   },
 
   settings: {
     'import/resolver': {
-      typescript: {}
-    }
-  }
+      typescript: {},
+    },
+  },
 };

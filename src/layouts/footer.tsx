@@ -5,7 +5,7 @@ import useSiteBuildTime from 'src/hooks/use-site-buildtime';
 
 const Component: React.FC<{ className?: string; buildYear: number }> = ({
   className,
-  buildYear
+  buildYear,
 }) => (
   <Box as="footer" className={className}>
     {/* eslint-disable-next-line react/jsx-one-expression-per-line */}

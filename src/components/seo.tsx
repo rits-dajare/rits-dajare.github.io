@@ -1,5 +1,5 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { useAnyImage, useSiteBuildTime, useSiteMetadata } from 'src/hooks';
 import { DeepPartial, DeepReadonly } from 'utility-types';
 
@@ -76,7 +76,7 @@ const SEO: React.FC<Props> = ({
   title = '',
   description = '',
   pathname = '',
-  image = ''
+  image = '',
 }) => {
   const metadata = useSiteMetadata() || {};
   const buildTime = useSiteBuildTime();
@@ -89,7 +89,7 @@ const SEO: React.FC<Props> = ({
     description: description || metadata.description,
     url: `${metadata.siteUrl}${pathname || ``}`,
     image: `${metadata.siteUrl}${image || ogp?.src}`,
-    twitterCardImage: `${metadata.siteUrl}${image || twitterCard?.src}`
+    twitterCardImage: `${metadata.siteUrl}${image || twitterCard?.src}`,
   };
 
   // JSON+LD configurations
@@ -102,9 +102,9 @@ const SEO: React.FC<Props> = ({
         '@type': 'ImageObject',
         url: icon?.src,
         width: 60,
-        height: 60
+        height: 60,
       },
-      url: metadata.siteUrl
+      url: metadata.siteUrl,
     },
     {
       '@type': 'thing',
@@ -115,9 +115,9 @@ const SEO: React.FC<Props> = ({
         '@type': 'ImageObject',
         url: twitterCard?.src,
         width: 60,
-        height: 60
-      }
-    }
+        height: 60,
+      },
+    },
   ];
 
   const publisher = {
@@ -128,8 +128,8 @@ const SEO: React.FC<Props> = ({
       '@type': 'ImageObject',
       url: icon?.src,
       width: 60,
-      height: 60
-    }
+      height: 60,
+    },
   };
 
   const jsonLdConfigs: JsonLdConfigProps = [
@@ -143,8 +143,8 @@ const SEO: React.FC<Props> = ({
       image: seo.image,
       description: seo.description,
       author: jsonLdAuthor,
-      publisher
-    }
+      publisher,
+    },
   ];
 
   if (pathname !== '/') {
@@ -158,10 +158,10 @@ const SEO: React.FC<Props> = ({
           item: {
             '@id': seo.url,
             name: seo.title,
-            image: seo.image
-          }
-        }
-      ]
+            image: seo.image,
+          },
+        },
+      ],
     });
 
     jsonLdConfigs.push({
@@ -173,17 +173,17 @@ const SEO: React.FC<Props> = ({
       headline: title,
       image: {
         '@type': 'ImageObject',
-        url: seo.image
+        url: seo.image,
       },
       description,
       datePublished: buildTime,
       dateModified: buildTime,
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': seo.url
+        '@id': seo.url,
       },
       author: jsonLdAuthor,
-      publisher
+      publisher,
     });
   }
 

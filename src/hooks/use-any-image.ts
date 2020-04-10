@@ -40,7 +40,7 @@ export default (filename: string): FluidObject | undefined => {
     }
   `);
 
-  const image = data.images.edges.find(edge => {
+  const image = data.images.edges.find((edge) => {
     return edge.node.relativePath.includes(filename);
   });
 

@@ -7,7 +7,7 @@ import {
   Box,
   css,
   Spinner,
-  Message
+  Message,
 } from 'theme-ui';
 import Paragraph from 'src/components/paragraph';
 import useJudgeApi, { ReturnValue, validate } from 'src/hooks/use-judge-api';
@@ -30,7 +30,7 @@ const Component: React.FC<ComponentProps> = ({
   error,
   isSubmitting,
   className,
-  inputTextRef
+  inputTextRef,
 }) => {
   const scoreStar =
     result &&
@@ -141,13 +141,13 @@ const JudgePage: React.FC = () => {
   const { result, isSubmitting, judge, error } = useJudgeApi();
   const inputTextRef = useRef<HTMLInputElement>(null);
 
-  const onSubmit: ComponentProps['onSubmit'] = event => {
+  const onSubmit: ComponentProps['onSubmit'] = (event) => {
     event.preventDefault();
 
     if (validate(text)) judge(text);
   };
 
-  const onInput: ComponentProps['onInput'] = event => {
+  const onInput: ComponentProps['onInput'] = (event) => {
     const { value } = event.currentTarget;
 
     setText(value);
