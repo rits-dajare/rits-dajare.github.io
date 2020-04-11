@@ -30,7 +30,12 @@ const getShareURL = (text: string, sns: SNS): string => {
 type Props = { text: string; className?: string; sns: SNS };
 
 const Component: React.FC<Props> = ({ text, children, className, sns }) => (
-  <Link className={className} to={getShareURL(text, sns)}>
+  <Link
+    className={className}
+    to={getShareURL(text, sns)}
+    target="_blank"
+    rel="noopener"
+  >
     <FontAwesomeIcon icon={SNSIcon[sns]} />
     &nbsp;
     {children ?? `Share with ${SNSName[sns]}`}
