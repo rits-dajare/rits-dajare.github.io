@@ -65,6 +65,7 @@ const Component: React.FC<ComponentProps> = ({
             className="input-text"
             minLength={4}
             ref={inputTextRef}
+            autoFocus
           />
           <Button type="submit" className="submit" disabled={isSubmitting}>
             判定！
