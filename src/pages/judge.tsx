@@ -40,7 +40,7 @@ const Component: React.FC<ComponentProps> = ({
   const scoreStar =
     result && `${'★'.repeat(scoreInt)}${'☆'.repeat(5 - scoreInt)}`;
 
-  const shareText = showScore
+  const shareText = !showScore
     ? `ダジャレ：${text}\nダジャレと判定できませんでした。\n\n#ダジャレ判定 by @rits_dajare\n\nhttps://rits-dajare.github.io/judge`
     : scoreStar &&
       `ダジャレ：${text}\nスコア：${scoreStar}\n\n#ダジャレ判定 by @rits_dajare\n\nhttps://rits-dajare.github.io/judge`;
