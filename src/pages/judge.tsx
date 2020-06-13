@@ -20,6 +20,8 @@ type ComponentProps = {
   text: string;
   className?: string;
   inputTextRef: React.Ref<HTMLInputElement>;
+  showScore: boolean;
+  forceShowScore: () => unknown;
 } & Omit<ReturnValue, 'judge'>;
 
 const Component: React.FC<ComponentProps> = ({
@@ -31,6 +33,8 @@ const Component: React.FC<ComponentProps> = ({
   isSubmitting,
   className,
   inputTextRef,
+  showScore,
+  forceShowScore,
 }) => {
   const scoreInt = Math.ceil(result?.score ?? 0);
   const scoreStar =
@@ -74,10 +78,10 @@ const Component: React.FC<ComponentProps> = ({
       {(result !== null || isSubmitting) && (
         <Box className="result">
           {isSubmitting && <Spinner className="loading" />}
-          {result !== null && !result.is_joke && (
+          {result !== null && !showScore && (
             <Paragraph>ダジャレではありません</Paragraph>
           )}
-          {result?.is_joke && (
+          {showScore && (
             <Paragraph>
               あなたのダジャレのスコアは
               {scoreStar}
@@ -86,7 +90,14 @@ const Component: React.FC<ComponentProps> = ({
           )}
         </Box>
       )}
-      {result && shareText && <ShareButton sns="twitter" text={shareText} />}
+      <div className="buttons">
+        {result && shareText && <ShareButton sns="twitter" text={shareText} />}
+        {result !== null && !showScore && (
+          <Button type="button" onClick={forceShowScore}>
+            ダジャレとして判定する
+          </Button>
+        )}
+      </div>
       {error && (
         <Message>
           {/* eslint-disable no-nested-ternary */}
@@ -134,15 +145,28 @@ const StyledComponent = styled(Component)`
     height: 4em;
     margin: 0 auto;
   }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      margin: 1em;
+    }
+  }
 `;
 
 const JudgePage: React.FC = () => {
   const [text, setText] = useState<string>('');
   const { result, isSubmitting, judge, error } = useJudgeApi();
   const inputTextRef = useRef<HTMLInputElement>(null);
+  const [forcedShowScore, setForcedShowScore] = useState<boolean>(false);
 
   const onSubmit: ComponentProps['onSubmit'] = (event) => {
     event.preventDefault();
+
+    setForcedShowScore(false);
 
     if (validate(text)) judge(text);
   };
@@ -172,6 +196,8 @@ const JudgePage: React.FC = () => {
       onInput={onInput}
       onSubmit={onSubmit}
       inputTextRef={inputTextRef}
+      showScore={result?.is_joke || forcedShowScore}
+      forceShowScore={(): void => setForcedShowScore(true)}
     />
   );
 };
