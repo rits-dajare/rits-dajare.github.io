@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import {
   IntegratedResult,
   JudgeResult,
-  EvaluateResult,
+  EvalResult,
   ReadingResult,
 } from 'src/types/api';
 
@@ -20,7 +20,7 @@ const baseURL =
 
 export type Results = {
   judge: JudgeResult;
-  evaluate: EvaluateResult;
+  eval: EvalResult;
   reading: ReadingResult;
 };
 
@@ -28,7 +28,7 @@ const fetchApi = async <T extends keyof Results>(
   type: T,
   text: string
 ): Promise<Results[T]> => {
-  const url = `${baseURL}/joke/${type}?joke=${encodeURIComponent(text)}`;
+  const url = `${baseURL}/dajare/${type}?dajare=${encodeURIComponent(text)}`;
 
   const result = await fetch(url);
   return result.json();
@@ -57,7 +57,7 @@ const useJudgeApi = (): ReturnValue => {
 
     Promise.all([
       fetchApi('judge', text),
-      fetchApi('evaluate', text),
+      fetchApi('eval', text),
       fetchApi('reading', text),
     ])
       .then((results) => {

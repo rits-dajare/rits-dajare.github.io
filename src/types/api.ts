@@ -1,8 +1,8 @@
 export type JudgeResult = {
-  is_joke: boolean;
+  is_dajare: boolean;
 };
 
-export type EvaluateResult = {
+export type EvalResult = {
   score: number;
 };
 
@@ -10,4 +10,4 @@ export type ReadingResult = {
   reading: string;
 };
 
-export type IntegratedResult = JudgeResult & EvaluateResult & ReadingResult;
+export type IntegratedResult = JudgeResult & EvalResult & ReadingResult;

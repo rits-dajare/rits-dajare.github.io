@@ -12,7 +12,7 @@ import {
 import Paragraph from 'src/components/paragraph';
 import useJudgeApi, { ReturnValue, validate } from 'src/hooks/use-judge-api';
 import styled from '@emotion/styled';
-import { SEO, ShareButton } from 'src/components';
+import { SEO, ShareButton, Header } from 'src/components';
 
 type ComponentProps = {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -52,7 +52,8 @@ const Component: React.FC<ComponentProps> = ({
         description="あなたのダジャレを判定します！"
         pathname="/judge"
       />
-      <Heading as="h1">立命館ダジャレサークル ダジャレ判定</Heading>
+      <Header />
+      <Heading as="h1">ダジャレ判定</Heading>
       <Paragraph>あなたのダジャレを判定します！</Paragraph>
       <Paragraph>ダジャレを入力し、「判定！」ボタンを押してください</Paragraph>
       <form onSubmit={onSubmit}>
@@ -197,7 +198,7 @@ const JudgePage: React.FC = () => {
       onInput={onInput}
       onSubmit={onSubmit}
       inputTextRef={inputTextRef}
-      showScore={result?.is_joke || forcedShowScore}
+      showScore={result?.is_dajare || forcedShowScore}
       forceShowScore={(): void => setForcedShowScore(true)}
     />
   );
