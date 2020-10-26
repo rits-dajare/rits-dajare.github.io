@@ -23,6 +23,7 @@ class MyDocument extends Document {
           <meta charSet="UTF-8" />
           <link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg" />
           <link rel="manifest" href="/manifest.json" />
+          <meta name="theme-color" content="#B61F38" />
         </Head>
         <body className="h-full font-sans bg-off-white text-off-back">
           <Main />
