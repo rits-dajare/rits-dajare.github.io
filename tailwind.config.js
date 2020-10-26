@@ -11,6 +11,12 @@ module.exports = {
         ritsumei: '#B61F38',
         twitter: '#1DA1F2',
       },
+      height: {
+        screen: 'calc(var(--vh, 1vh) * 100);',
+      },
+      minHeight: {
+        screen: 'calc(var(--vh, 1vh) * 100);',
+      },
     },
   },
   variants: {},

@@ -7,5 +7,5 @@
 html,
 body,
 #__next {
-  @apply min-h-full;
+  @apply min-h-screen;
 }
