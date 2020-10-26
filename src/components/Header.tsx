@@ -8,7 +8,7 @@ const Header: FC = () => (
         <svg
           viewBox="0 0 400 91"
           xmlns="http://www.w3.org/2000/svg"
-          className="h-8 mt-2 mb-4"
+          className="h-6 my-4"
         >
           <title>立命館ダジャレサークル</title>
           <path
