@@ -9,8 +9,8 @@ const Layout: FC<{
   fullHeight?: boolean;
 }> = ({ children, hasHeader = true, hasFooter = true, fullHeight = true }) => (
   <div
-    className={`max-w-2xl mx-auto flex flex-col px-1${
-      fullHeight ? ' h-full' : ''
+    className={`max-w-2xl mx-auto flex flex-col px-3 ${
+      fullHeight ? 'h-full' : ''
     }`}
   >
     {hasHeader && <Header />}
