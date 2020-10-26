@@ -4,7 +4,6 @@
   "private": true,
   "repository": "git@github.com:rits-dajare/rits-dajare.github.io.git",
   "license": "MIT",
-  "author": "ygkn <2000ygkn0713@gmail.com>",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop --open",
