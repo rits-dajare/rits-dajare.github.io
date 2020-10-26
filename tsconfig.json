@@ -1,31 +1,19 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "umd",
-    "jsx": "react",
-    "lib": ["es2020", "DOM"],
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "noEmit": true,
-    "allowJs": true,
-    "sourceMap": true,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": false,
     "skipLibCheck": true,
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
     "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
     "isolatedModules": true,
-    "strictNullChecks": true,
-    "noImplicitReturns": true,
-    "assumeChangesOnlyAffectDirectDependencies": true,
-    "baseUrl": ".",
-    "paths": { "*": ["types/*"], "src/*": ["src/*"], "types/*": ["types/*"] },
-    "typeRoots": ["types", "node_modules/@types"]
+    "jsx": "preserve"
   },
-  "watchOptions": {
-    "watchFile": "useFsEvents",
-    "watchDirectory": "useFsEvents",
-    "fallbackPolling": "dynamicPriority"
-  },
-  "exclude": ["node_modules", "public", ".cache"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

@@ -25,11 +25,13 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install Dependencies
         run: yarn install
-      - name: Build
-        run: yarn build
+        - name: Build
+          run: yarn build
+        - name: Export to Static Pages
+          run: yarn export
+      - run: touch out/.nojekyll
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: master
+          publish_dir: ./out
