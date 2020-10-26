@@ -4,7 +4,7 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/?utm_source=homescreen",
-  "app_name": "立命館ダジャレサークル",
+  "name": "立命館ダジャレサークル",
   "short_name": "ダジャレ",
   "description": "立命館ダジャレサークルの公式 Web サイト",
   "icons": [
