@@ -1,206 +1,125 @@
-import React, { useState, useRef } from 'react';
-import {
-  Heading,
-  Label,
-  Input,
-  Button,
-  Box,
-  css,
-  Spinner,
-  Message,
-} from 'theme-ui';
-import Paragraph from 'src/components/paragraph';
-import useJudgeApi, { ReturnValue, validate } from 'src/hooks/use-judge-api';
-import styled from '@emotion/styled';
-import { SEO, ShareButton, Header } from 'src/components';
+import { FC, FormEvent, useCallback, useState } from 'react';
+import { TwitterShareButton } from 'react-share';
 
-type ComponentProps = {
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-  onInput: (event: React.FormEvent<HTMLInputElement>) => void;
-  text: string;
-  className?: string;
-  inputTextRef: React.Ref<HTMLInputElement>;
-  showScore: boolean;
-  forceShowScore: () => unknown;
-} & Omit<ReturnValue, 'judge'>;
+import { Heading, Layout, SEO } from '../components';
+import { useJudge } from '../Hooks';
 
-const Component: React.FC<ComponentProps> = ({
-  onSubmit,
-  text,
-  onInput,
-  result,
-  error,
-  isSubmitting,
-  className,
-  inputTextRef,
-  showScore,
-  forceShowScore,
-}) => {
-  const scoreInt = Math.ceil(result?.score ?? 0);
-  const scoreStar =
-    result && `${'★'.repeat(scoreInt)}${'☆'.repeat(5 - scoreInt)}`;
+const JudgePage: FC = () => {
+  const { result, error, judge, isLoading, isSubmitted } = useJudge();
+  const [dajare, setDajare] = useState<string>('');
+  const [forceShowScore, setForceShowScore] = useState<boolean>(false);
 
-  const shareText = !showScore
-    ? `ダジャレ：${text}\nダジャレと判定できませんでした。\n\n#ダジャレ判定 by @rits_dajare\n\nhttps://rits-dajare.github.io/judge`
-    : scoreStar &&
-      `ダジャレ：${text}\nスコア：${scoreStar}\n\n#ダジャレ判定 by @rits_dajare\n\nhttps://rits-dajare.github.io/judge`;
+  const intScore = result.score && Math.ceil(result.score);
+
+  const judgeText =
+    intScore !== undefined && result.isDajare
+      ? `スコア: ${'★'.repeat(intScore)}${'☆'.repeat(5 - intScore)}`
+      : '\nダジャレではありません';
+
+  const shareText = [`ダジャレ: ${dajare}`, judgeText, ''].join('\n');
+
+  const handleSubmit = useCallback(
+    (event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      setForceShowScore(false);
+      judge(dajare);
+    },
+    [dajare, judge]
+  );
+
+  const handleChangeDajare = useCallback(
+    (event: FormEvent<HTMLInputElement>) =>
+      setDajare(event.currentTarget.value),
+    []
+  );
 
   return (
-    <Box as="main" id="main" className={className}>
+    <Layout>
       <SEO
         title="ダジャレ判定"
-        description="あなたのダジャレを判定します！"
-        pathname="/judge"
+        description="ダジャレスコアを判定します"
+        path="/judge"
       />
-      <Header />
-      <Heading as="h1">ダジャレ判定</Heading>
-      <Paragraph>あなたのダジャレを判定します！</Paragraph>
-      <Paragraph>ダジャレを入力し、「判定！」ボタンを押してください</Paragraph>
-      <form onSubmit={onSubmit}>
-        <Label htmlFor="dajare" />
-        <div className="input-group">
-          <Input
-            type="text"
-            name="dajare"
-            value={text}
-            onChange={onInput}
-            placeholder="布団がふっとんだ"
-            disabled={isSubmitting}
-            required
-            className="input-text"
-            minLength={4}
-            ref={inputTextRef}
-            autoFocus
-          />
-          <Button type="submit" className="submit" disabled={isSubmitting}>
-            判定！
-          </Button>
-        </div>
+      <Heading>ダジャレ判定</Heading>
+      <form className="flex gap-4" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="dajare"
+          id="input-dajare"
+          className="flex-grow px-4 py-2 rounded-sm"
+          onChange={handleChangeDajare}
+          value={dajare}
+          placeholder="布団がふっとんだ"
+          disabled={isLoading}
+          required
+          minLength={4}
+          // eslint-disable-next-line jsx-a11y/no-autofocus
+          autoFocus
+        />
+        <button
+          type="submit"
+          className="px-4 py-2 bg-ritsumei text-white rounded-sm"
+        >
+          判定
+        </button>
       </form>
-      {(result !== null || isSubmitting) && (
-        <Box className="result">
-          {isSubmitting && <Spinner className="loading" />}
-          {result !== null && !showScore && (
-            <Paragraph>ダジャレではありません</Paragraph>
+
+      {isSubmitted && (
+        <section className="bg-white m-6 p-5 border rounded text-center">
+          {isLoading && '読み込み中'}
+          {!isLoading && error && (
+            <>
+              <h1 className="font-bold mb-2">エラーが発生しました</h1>
+              <p>
+                メッセージ: <pre className="font-mono">{error.message}</pre>
+              </p>
+            </>
           )}
-          {showScore && (
-            <Paragraph>
-              あなたのダジャレのスコアは
-              {scoreStar}
-              です！
-            </Paragraph>
+          {!isLoading && !error && (
+            <>
+              <h1 className="font-bold mb-2">判定結果</h1>
+              {result.isDajare !== undefined &&
+                !result.isDajare &&
+                !forceShowScore && (
+                  <>
+                    <p className="mb-5">ダジャレではありません。</p>
+
+                    <button
+                      type="button"
+                      className="px-4 py-2 bg-ritsumei text-white rounded-sm"
+                      onClick={() => setForceShowScore(true)}
+                    >
+                      ダジャレとして判定する
+                    </button>
+                  </>
+                )}
+              {(result.isDajare || forceShowScore) && intScore !== undefined && (
+                <div role="img" aria-label={`星 5 つ中 ${intScore} つ`}>
+                  <span aria-hidden="true">
+                    {'★'.repeat(intScore)}
+                    {'☆'.repeat(5 - intScore)}
+                  </span>
+                </div>
+              )}
+            </>
           )}
-        </Box>
+        </section>
       )}
-      <div className="buttons">
-        {result && shareText && <ShareButton sns="twitter" text={shareText} />}
-        {result !== null && !showScore && (
-          <Button type="button" onClick={forceShowScore}>
-            ダジャレとして判定する
-          </Button>
-        )}
-      </div>
-      {error && (
-        <Message>
-          {/* eslint-disable no-nested-ternary */}
-          {typeof error === 'string'
-            ? error
-            : typeof error.message === 'string'
-            ? error.message
-            : 'エラーが発生しました'}
-          {/* eslint-enable */}
-        </Message>
+      {isSubmitted && !isLoading && !error && shareText && (
+        <div className="text-center">
+          <TwitterShareButton
+            title={shareText}
+            url="https://rits-dajare.github.io/judge"
+            via="rits_dajare"
+            hashtags={['ダジャレ判定']}
+            className="px-4 py-2 bg-twitter text-white rounded-sm"
+            resetButtonStyle={false}
+          >
+            結果をツイート
+          </TwitterShareButton>
+        </div>
       )}
-    </Box>
-  );
-};
-
-const StyledComponent = styled(Component)`
-  .input-group {
-    display: flex;
-  }
-
-  .input-text {
-    flex: 1 1;
-  }
-
-  .input-text,
-  .submit {
-    ${css({ margin: 3 })}
-  }
-
-  .result {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 30em;
-    height: 15em;
-    margin: 1em auto;
-    border-radius: 1em;
-    border: solid 1px;
-    ${css({ borderColor: 'muted' })}
-  }
-
-  .loading {
-    width: 4em;
-    height: 4em;
-    margin: 0 auto;
-  }
-
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    button {
-      margin: 1em;
-    }
-  }
-`;
-
-const JudgePage: React.FC = () => {
-  const [text, setText] = useState<string>('');
-  const { result, isSubmitting, judge, error } = useJudgeApi();
-  const inputTextRef = useRef<HTMLInputElement>(null);
-  const [forcedShowScore, setForcedShowScore] = useState<boolean>(false);
-
-  const onSubmit: ComponentProps['onSubmit'] = (event) => {
-    event.preventDefault();
-
-    setForcedShowScore(false);
-
-    if (validate(text)) judge(text);
-  };
-
-  const onInput: ComponentProps['onInput'] = (event) => {
-    const { value } = event.currentTarget;
-
-    setText(value);
-
-    /* eslint-disable no-unused-expressions */
-    if (validate(value)) {
-      inputTextRef.current?.setCustomValidity('');
-    } else {
-      inputTextRef.current?.setCustomValidity(
-        '空白以外の文字を入力してください'
-      );
-    }
-    /* eslint-enable */
-  };
-
-  return (
-    <StyledComponent
-      text={text}
-      result={result}
-      error={error}
-      isSubmitting={isSubmitting}
-      onInput={onInput}
-      onSubmit={onSubmit}
-      inputTextRef={inputTextRef}
-      showScore={result?.is_dajare || forcedShowScore}
-      forceShowScore={(): void => setForcedShowScore(true)}
-    />
+    </Layout>
   );
 };
 

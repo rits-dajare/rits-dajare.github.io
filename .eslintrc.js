@@ -1,44 +1,64 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
+  env: {
+    browser: true,
+    es2020: true,
+    node: true,
+  },
   extends: [
-    'airbnb',
+    // base
+    'airbnb-typescript',
+    'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+
+    // react
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+
+    // import
+    'plugin:import/errors',
+    'plugin:import/warnings',
     'plugin:import/typescript',
-    'prettier',
+
+    // Prettier integration
+    'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
+    'prettier/react',
   ],
-  plugins: ['@typescript-eslint', 'react-hooks'],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2019,
-    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    project: './tsconfig.json',
   },
-  env: {
-    browser: true,
-    node: true,
-  },
+  plugins: ['react', '@typescript-eslint'],
   rules: {
-    'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
-    'import/extensions': [
+    'import/prefer-default-export': 'off',
+    'react/destructuring-assignment': 'off',
+
+    // for Next.js
+    'react/react-in-jsx-scope': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
+
+    // for TypeScript
+    'spaced-comment': ['error', 'always', { markers: ['/'] }],
+    'default-case': 'off',
+    'react/prop-types': 'off',
+
+    // restrict order of imports
+    'import/order': [
       'error',
-      'ignorePackages',
       {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-        mjs: 'never',
+        groups: [['builtin', 'external'], 'parent', ['sibling', 'index']],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
       },
     ],
-    'import/no-named-as-default': 'off',
-    'react/prop-types': 'off',
-  },
-
-  settings: {
-    'import/resolver': {
-      typescript: {},
-    },
   },
 };

@@ -1,6 +1,12 @@
-import React from 'react';
-import { Heading } from 'theme-ui';
+import { FC } from 'react';
 
-const NotFoundPage: React.FC = () => <Heading>404</Heading>;
+import { Heading, Layout } from '../components';
+
+const NotFoundPage: FC = () => (
+  <Layout>
+    <Heading>404</Heading>
+    <p>ページが見つかりません。</p>
+  </Layout>
+);
 
 export default NotFoundPage;
