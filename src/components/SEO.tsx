@@ -22,7 +22,7 @@ const SEO: FC<{ title: string; path: string; description: string }> = ({
         description,
         images: [
           {
-            url: '/ogp.png',
+            url: 'https://rits-dajare.github.io/ogp.png',
             width: 4096,
             height: 4096,
             alt: '立命館ダジャレサークル',
