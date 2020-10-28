@@ -2,7 +2,7 @@ import { FC, FormEvent, useCallback, useState } from 'react';
 import { TwitterShareButton } from 'react-share';
 
 import { Heading, Layout, SEO } from '../components';
-import { useJudge } from '../Hooks';
+import { useJudge } from '../hooks';
 
 const JudgePage: FC = () => {
   const { result, error, judge, isLoading, isSubmitted } = useJudge();
