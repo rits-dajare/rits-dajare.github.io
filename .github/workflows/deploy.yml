@@ -29,7 +29,6 @@ jobs:
         run: yarn build
       - name: Export to Static Pages
         run: yarn export
-      - run: touch out/.nojekyll
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
