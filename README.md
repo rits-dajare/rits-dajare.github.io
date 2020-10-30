@@ -10,3 +10,46 @@
 </div>
 
 Source code of [rits-dajare.github.io](https://rits-dajare.github.io)
+
+## Develop
+
+### Requirements
+
+- [Node.js](https://nodejs.org/)
+  - v14.\*
+- [yarn](https://yarnpkg.com/)
+  - 1.\*
+
+### Preparation
+
+Clone this repository.
+
+Then, install dependencies with yarn.
+
+```sh
+yarn
+```
+
+### Commands
+
+See `scripts` section of [package.json](./package.json)
+
+- `yarn dev` - runs in developing mode
+- `yarn build && yarn export` - exports HTML files and others in `./out`
+- `yarn run check` - checks with code formatting with Prettier, type checking with tsc, linting with ESLint
+
+### Continuos Integrations (CI)
+
+See [.github/workflows/code-check.yml](./.github/workflows/code-check.yml)
+
+This project use GitHub Actions for CI.
+
+This forkflows runs `yarn run check` in pushing/PR on `main` branch.
+
+### Continuous Delivery (CD)
+
+See [.github/workflows/deploy.yml](./.github/workflows/deploy.yml)
+
+This project use GitHub Actions for CD.
+
+This forkflows runs `yarn build && yarn export` in pushing/PR on `main` branch, then deploys using GitHub Pages.
