@@ -38,7 +38,7 @@ See `scripts` section of [package.json](./package.json)
 - `yarn build && yarn export` - exports HTML files and others in `./out`
 - `yarn run check` - checks with code formatting with Prettier, type checking with tsc, linting with ESLint
 
-### Continuos Integrations (CI)
+## Continuos Integrations (CI)
 
 See [.github/workflows/code-check.yml](./.github/workflows/code-check.yml)
 
@@ -46,7 +46,7 @@ This project use GitHub Actions for CI.
 
 This forkflows runs `yarn run check` in pushing/PR on `main` branch.
 
-### Continuous Delivery (CD)
+## Continuous Delivery (CD)
 
 See [.github/workflows/deploy.yml](./.github/workflows/deploy.yml)
 
