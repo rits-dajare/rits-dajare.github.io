@@ -9,7 +9,7 @@ const JudgePage: FC = () => {
   const [dajare, setDajare] = useState<string>('');
   const [forceShowScore, setForceShowScore] = useState<boolean>(false);
 
-  const intScore = result.score && Math.ceil(result.score);
+  const intScore = result.score && Math.round(result.score);
 
   const judgeText =
     intScore !== undefined && result.isDajare
