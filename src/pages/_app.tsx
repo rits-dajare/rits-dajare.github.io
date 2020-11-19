@@ -31,7 +31,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   - ダジャレ判定 / 評価エンジン:
     https://github.com/rits-dajare/DaaS
 `,
-      'color: #2A2928',
+      '',
       'font-weight: bold; color: #B61F38; font-size: 2.5em',
       ''
     );
