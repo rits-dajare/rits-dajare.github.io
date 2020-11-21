@@ -2,13 +2,13 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 const Header: FC = () => (
-  <header>
+  <header className="flex mt-2">
     <Link href="/">
-      <a>
+      <a className="rounded-sm">
         <svg
           viewBox="0 0 400 91"
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 my-4"
+          className="inline-block h-6"
         >
           <title>立命館ダジャレサークル</title>
           <path
