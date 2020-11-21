@@ -9,3 +9,7 @@ body,
 #__next {
   @apply min-h-screen;
 }
+
+*:focus {
+  @apply outline-none ring ring-opacity-40 ring-ritsumei;
+}
