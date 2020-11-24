@@ -36,7 +36,7 @@ class MyDocument extends Document {
           <meta name="apple-mobile-web-app-title" content={manifestJSON.name} />
           <meta name="application-name" content={manifestJSON.short_name} />
         </Head>
-        <body className="font-sans bg-off-white text-off-black">
+        <body className="font-sans bg-off-white text-off-black dark:bg-off-black dark:text-off-white">
           <Main />
           <NextScript />
         </body>

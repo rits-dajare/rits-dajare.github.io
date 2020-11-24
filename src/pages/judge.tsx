@@ -46,7 +46,7 @@ const JudgePage: FC = () => {
           type="text"
           name="dajare"
           id="input-dajare"
-          className="flex-grow px-4 py-2 rounded-sm"
+          className="flex-grow px-4 py-2 rounded-sm bg-white dark:bg-black"
           onChange={handleChangeDajare}
           value={dajare}
           placeholder="布団がふっとんだ"
@@ -65,7 +65,7 @@ const JudgePage: FC = () => {
       </form>
 
       {isSubmitted && (
-        <section className="bg-white m-6 p-5 border rounded text-center">
+        <section className="bg-white dark:bg-off-black m-6 p-5 border dark:border-gray-900 rounded text-center">
           {isLoading && '読み込み中'}
           {!isLoading && error && (
             <>

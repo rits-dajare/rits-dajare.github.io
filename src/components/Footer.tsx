@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 const Footer: FC = () => (
-  <footer className="text-center text-off-black my-5">
+  <footer className="text-center text-off-black dark:text-off-white my-5">
     © 2020 立命館ダジャレサークル
   </footer>
 );
