@@ -10,6 +10,7 @@ body,
   @apply min-h-screen;
 }
 
-*:focus {
+*:focus,
+button:focus {
   @apply outline-none ring ring-opacity-40 ring-ritsumei;
 }
