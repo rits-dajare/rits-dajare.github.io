@@ -109,7 +109,7 @@ const JudgePage: FC = () => {
         <div className="text-center">
           <TwitterShareButton
             title={shareText}
-            url="https://rits-dajare.vercel.app/judge"
+            url="https://rits-dajare.github.io/judge"
             via="rits_dajare"
             hashtags={['ダジャレ判定']}
             className="px-4 py-2 bg-twitter text-white rounded-sm"

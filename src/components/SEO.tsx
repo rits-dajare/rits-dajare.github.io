@@ -6,7 +6,7 @@ const SEO: FC<{ title: string; path: string; description: string }> = ({
   path,
   description,
 }) => {
-  const url = `https://rits-dajare.vercel.app${path}`;
+  const url = `https://rits-dajare.github.io${path}`;
   const fullTitle = `${title && `${title} | `}立命館ダジャレサークル`;
 
   return (
@@ -22,7 +22,7 @@ const SEO: FC<{ title: string; path: string; description: string }> = ({
         description,
         images: [
           {
-            url: 'https://rits-dajare.vercel.app/ogp.png',
+            url: 'https://rits-dajare.github.io/ogp.png',
             width: 4096,
             height: 4096,
             alt: '立命館ダジャレサークル',

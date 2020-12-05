@@ -1,8 +1,8 @@
 {
-  "name": "website",
+  "name": "rits-dajare.github.io",
   "version": "1.0.0",
   "private": true,
-  "repository": "git@github.com:rits-dajare/website.git",
+  "repository": "git@github.com:rits-dajare/rits-dajare.github.io.git",
   "license": "MIT",
   "scripts": {
     "build": "next build",
