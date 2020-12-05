@@ -27,7 +27,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
 %c▼ 探しものはここにあるかも
 
   - この Web サイトのソース:
-    https://github.com/rits-dajare/rits-dajare.github.io
+    https://github.com/rits-dajare/website
   - ダジャレ判定 / 評価エンジン:
     https://github.com/rits-dajare/DaaS
 `,
