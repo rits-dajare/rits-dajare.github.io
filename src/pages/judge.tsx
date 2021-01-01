@@ -111,7 +111,7 @@ const JudgePage: FC = () => {
             title={shareText}
             url="https://rits-dajare.github.io/judge"
             via="rits_dajare"
-            hashtags={['ダジャレ判定']}
+            hashtags={['ダジャレ判定', '初笑い', 'ダジャレ初め']}
             className="px-4 py-2 bg-twitter text-white rounded-sm"
             resetButtonStyle={false}
           >
