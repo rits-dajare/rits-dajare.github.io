@@ -1,8 +1,8 @@
 import '../styles/index.css';
 import type { AppProps } from 'next/app';
-import { FC, useEffect } from 'react';
+import { VFC, useEffect } from 'react';
 
-const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
+const MyApp: VFC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
     const setFillHeight = () => {
       const vh = window.innerHeight * 0.01;

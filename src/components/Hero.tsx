@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import { VFC } from 'react';
 
-const Hero: FC = () => (
+const Hero: VFC = () => (
   <svg viewBox="0 0 1440 1185" fill="none" xmlns="http://www.w3.org/2000/svg">
     <title>立命館ダジャレサークル</title>
 

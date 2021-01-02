@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { FC } from 'react';
+import { VFC } from 'react';
 
-const Header: FC = () => (
+const Header: VFC = () => (
   <header className="flex mt-2">
     <Link href="/">
       <a className="rounded-sm">

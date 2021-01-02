@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo';
-import { FC } from 'react';
+import { VFC } from 'react';
 
-const SEO: FC<{ title: string; path: string; description: string }> = ({
+const SEO: VFC<{ title: string; path: string; description: string }> = ({
   title,
   path,
   description,

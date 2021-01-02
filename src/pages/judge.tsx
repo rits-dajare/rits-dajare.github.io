@@ -1,10 +1,10 @@
-import { FC, FormEvent, useCallback, useState } from 'react';
+import { VFC, FormEvent, useCallback, useState } from 'react';
 import { TwitterShareButton } from 'react-share';
 
 import { Heading, Layout, SEO } from '../components';
 import { useJudge } from '../hooks';
 
-const JudgePage: FC = () => {
+const JudgePage: VFC = () => {
   const { result, error, judge, isLoading, isSubmitted } = useJudge();
   const [dajare, setDajare] = useState<string>('');
   const [forceShowScore, setForceShowScore] = useState<boolean>(false);
