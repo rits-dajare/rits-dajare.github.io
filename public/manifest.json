@@ -32,5 +32,12 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
+  ],
+  "shortcuts": [
+    {
+      "name": "ダジャレ判定",
+      "description": "ダジャレスコアを判定します",
+      "url": "/judge?utm_source=homescreen"
+    }
   ]
 }
