@@ -20,7 +20,7 @@
     "next-seo": "4.17.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-share": "4.3.1"
+    "react-share": "4.4.0"
   },
   "devDependencies": {
     "@types/node": "14.14.22",
