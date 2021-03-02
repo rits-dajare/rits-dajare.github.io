@@ -27,6 +27,9 @@ module.exports = {
     jest: true,
     node: true,
   },
+  settings: {
+    react: { version: 'detect' },
+  },
 
   rules: {
     'import/prefer-default-export': 'off',
