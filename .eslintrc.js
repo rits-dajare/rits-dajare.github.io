@@ -1,19 +1,17 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2020: true,
-    node: true,
-  },
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'jsx-a11y'],
   extends: [
     // base
-    'airbnb-typescript',
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
 
-    // react
+    // React
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
+
+    // TypeScript
+    'plugin:@typescript-eslint/recommended',
 
     // import
     'plugin:import/errors',
@@ -21,20 +19,15 @@ module.exports = {
     'plugin:import/typescript',
 
     // Prettier integration
-    'plugin:prettier/recommended',
-    'prettier/@typescript-eslint',
-    'prettier/react',
+    'prettier',
   ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    project: './tsconfig.json',
+  env: {
+    es6: true,
+    browser: true,
+    jest: true,
+    node: true,
   },
-  plugins: ['react', '@typescript-eslint'],
+
   rules: {
     'import/prefer-default-export': 'off',
     'react/destructuring-assignment': 'off',
@@ -44,8 +37,6 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 'off',
 
     // for TypeScript
-    'spaced-comment': ['error', 'always', { markers: ['/'] }],
-    'default-case': 'off',
     'react/prop-types': 'off',
 
     // restrict order of imports
