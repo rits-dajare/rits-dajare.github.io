@@ -16,12 +16,11 @@ const IndexPage: NextPage = () => (
     <Layout hasHeader={false} fullHeight={false}>
       <section>
         <p className="text-center my-10">
-          <a
-            className="inline-block bg-ritsumei text-white py-3 px-8 rounded-sm hover:shadow-lg duration-200 transition-shadow"
-            href="/judge"
-          >
-            ダジャレを判定する！
-          </a>
+          <Link href="/judge" passHref>
+            <a className="inline-block bg-ritsumei text-white py-3 px-8 rounded-sm hover:shadow-lg duration-200 transition-shadow">
+              ダジャレを判定する！
+            </a>
+          </Link>
         </p>
       </section>
       <Heading>立命館ダジャレサークルって何？</Heading>
