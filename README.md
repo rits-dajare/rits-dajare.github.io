@@ -9,7 +9,7 @@
 
 </div>
 
-Source code of [rits-dajare.github.io](https://rits-dajare.github.io)
+Source code of [rits-dajare.github.io](https://rits-dajare.github.io): official website of _**立命館ダジャレサークル**_ .
 
 ## Develop
 
