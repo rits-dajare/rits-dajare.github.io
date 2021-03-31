@@ -117,5 +117,17 @@
       "description": "ダジャレスコアを判定します",
       "url": "/judge?utm_source=homescreen"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/index.png",
+      "type": "image/png",
+      "sizes": "1440x2880"
+    },
+    {
+      "src": "/screenshots/judge.png",
+      "type": "image/png",
+      "sizes": "1440x2880"
+    }
   ]
 }
