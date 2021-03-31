@@ -6,7 +6,7 @@
   "start_url": "/?utm_source=homescreen",
   "name": "立命館ダジャレサークル",
   "short_name": "ダジャレ",
-  "description": "立命館ダジャレサークルの公式 Web サイト",
+  "description": "立命館ダジャレサークルの公式 Web サイトです。サークルの情報のほか、ダジャレ判定サービスを提供しています。",
   "icons": [
     { "src": "/icons/app-icon-72.png", "sizes": "72x72", "type": "image/png" },
     { "src": "/icons/app-icon-96.png", "sizes": "96x96", "type": "image/png" },
@@ -116,6 +116,18 @@
       "name": "ダジャレ判定",
       "description": "ダジャレスコアを判定します",
       "url": "/judge?utm_source=homescreen"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/index.png",
+      "type": "image/png",
+      "sizes": "1440x2880"
+    },
+    {
+      "src": "/screenshots/judge.png",
+      "type": "image/png",
+      "sizes": "1440x2880"
     }
   ]
 }
