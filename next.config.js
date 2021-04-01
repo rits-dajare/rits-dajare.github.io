@@ -1,3 +1,3 @@
-const withOffline = require('next-offline');
+const withPWA = require('next-pwa');
 
-module.exports = withOffline();
+module.exports = withPWA();
