@@ -122,12 +122,12 @@
     {
       "src": "/screenshots/index.png",
       "type": "image/png",
-      "sizes": "1440x2880"
+      "sizes": "720x1440"
     },
     {
       "src": "/screenshots/judge.png",
       "type": "image/png",
-      "sizes": "1440x2880"
+      "sizes": "720x1440"
     }
   ]
 }
