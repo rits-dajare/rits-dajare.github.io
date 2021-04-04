@@ -14,7 +14,7 @@ type UseJudgeReturnType = {
 };
 
 const fetchIsDajare = async (dajare: string): Promise<boolean> => {
-  const url = `https://dajare.abelab.dev/judge/?dajare=${encodeURIComponent(
+  const url = `https://api.abelab.dev/daas/judge/?dajare=${encodeURIComponent(
     dajare
   )}`;
 
@@ -40,7 +40,7 @@ const fetchIsDajare = async (dajare: string): Promise<boolean> => {
 };
 
 const fetchScore = async (dajare: string): Promise<number> => {
-  const url = `https://dajare.abelab.dev/eval/?dajare=${encodeURIComponent(
+  const url = `https://api.abelab.dev/daas/eval/?dajare=${encodeURIComponent(
     dajare
   )}`;
 
