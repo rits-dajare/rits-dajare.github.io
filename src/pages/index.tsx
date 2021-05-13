@@ -1,7 +1,12 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
 
-import { Anchor, Heading, Hero, Layout, Paragraph, SEO } from '../components';
+import { Anchor } from '../components/Anchor';
+import { Heading } from '../components/Heading';
+import { Hero } from '../components/Hero';
+import { Layout } from '../components/Layout';
+import { Paragraph } from '../components/Paragraph';
+import { SEO } from '../components/SEO';
 
 const IndexPage: NextPage = () => (
   <>

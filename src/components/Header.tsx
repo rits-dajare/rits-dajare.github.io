@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { VFC } from 'react';
 
-const Header: VFC = () => (
+export const Header: VFC = () => (
   <header className="flex mt-2">
     <Link href="/">
       <a className="rounded-sm">
@@ -41,4 +41,4 @@ const Header: VFC = () => (
   </header>
 );
 
-export default Header;
+

@@ -65,12 +65,13 @@ const fetchScore = async (dajare: string): Promise<number> => {
   return resultJSON.score;
 };
 
-const useJudge = (): UseJudgeReturnType => {
+export const useJudge = (): UseJudgeReturnType => {
   const [isDajare, setIsDajare] = useState<Result['isDajare']>();
   const [score, setScore] = useState<Result['score']>();
   const [error, setError] = useState<UseJudgeReturnType['error']>();
-  const [isSubmitted, setIsSubmitted] =
-    useState<UseJudgeReturnType['isSubmitted']>(false);
+  const [isSubmitted, setIsSubmitted] = useState<
+    UseJudgeReturnType['isSubmitted']
+  >(false);
 
   const judge: UseJudgeReturnType['judge'] = useCallback(async (dajare) => {
     setIsDajare(undefined);
@@ -94,5 +95,3 @@ const useJudge = (): UseJudgeReturnType => {
     judge,
   };
 };
-
-export default useJudge;

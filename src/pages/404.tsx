@@ -1,6 +1,7 @@
 import { VFC } from 'react';
 
-import { Heading, Layout } from '../components';
+import { Heading } from '../components/Heading';
+import { Layout } from '../components/Layout';
 
 const NotFoundPage: VFC = () => (
   <Layout>

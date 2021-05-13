@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-const Heading: FC<{ headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' }> = ({
+export const Heading: FC<{ headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' }> = ({
   children,
   headingLevel: TagName = 'h2',
 }) => (
@@ -9,4 +9,4 @@ const Heading: FC<{ headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' }> = ({
   </TagName>
 );
 
-export default Heading;
+

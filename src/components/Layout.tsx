@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import Footer from './Footer';
-import Header from './Header';
+import {Footer} from './Footer';
+import {Header} from './Header';
 
-const Layout: FC<{
+export const Layout: FC<{
   hasHeader?: boolean;
   hasFooter?: boolean;
   fullHeight?: boolean;
@@ -19,4 +19,4 @@ const Layout: FC<{
   </div>
 );
 
-export default Layout;
+

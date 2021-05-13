@@ -1,8 +1,10 @@
 import { VFC, FormEvent, useCallback, useState } from 'react';
 import { TwitterShareButton } from 'react-share';
 
-import { Heading, Layout, SEO } from '../components';
-import { useJudge } from '../hooks';
+import { Heading } from '../components/Heading';
+import { Layout } from '../components/Layout';
+import { SEO } from '../components/SEO';
+import { useJudge } from '../hooks/useJudge';
 
 const JudgePage: VFC = () => {
   const { result, error, judge, isLoading, isSubmitted } = useJudge();

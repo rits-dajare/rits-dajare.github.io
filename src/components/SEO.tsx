@@ -1,7 +1,7 @@
 import { LogoJsonLd, NextSeo, SocialProfileJsonLd } from 'next-seo';
 import { VFC } from 'react';
 
-const SEO: VFC<{ title: string; path: string; description: string }> = ({
+export const SEO: VFC<{ title: string; path: string; description: string }> = ({
   title,
   path,
   description,
@@ -54,4 +54,4 @@ const SEO: VFC<{ title: string; path: string; description: string }> = ({
   );
 };
 
-export default SEO;
+
