@@ -129,12 +129,12 @@
     {
       "src": "/screenshots/index.png",
       "type": "image/png",
-      "sizes": "720x1440"
+      "sizes": "1080x1920"
     },
     {
       "src": "/screenshots/judge.png",
       "type": "image/png",
-      "sizes": "720x1440"
+      "sizes": "1080x1920"
     }
   ]
 }
