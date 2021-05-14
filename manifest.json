@@ -115,19 +115,26 @@
     {
       "name": "ダジャレ判定",
       "description": "ダジャレスコアを判定します",
-      "url": "/judge?utm_source=homescreen"
+      "url": "/judge?utm_source=homescreen",
+      "icons": [
+        {
+          "src": "/icons/judge.png",
+          "type": "image/png",
+          "sizes": "128x128"
+        }
+      ]
     }
   ],
   "screenshots": [
     {
       "src": "/screenshots/index.png",
       "type": "image/png",
-      "sizes": "720x1440"
+      "sizes": "1080x1920"
     },
     {
       "src": "/screenshots/judge.png",
       "type": "image/png",
-      "sizes": "720x1440"
+      "sizes": "1080x1920"
     }
   ]
 }
