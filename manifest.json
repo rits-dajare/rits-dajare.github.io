@@ -135,6 +135,16 @@
       "src": "/screenshots/judge.png",
       "type": "image/png",
       "sizes": "1080x1920"
+    },
+    {
+      "src": "/screenshots/index-dark.png",
+      "type": "image/png",
+      "sizes": "1080x1920"
+    },
+    {
+      "src": "/screenshots/judge-dark.png",
+      "type": "image/png",
+      "sizes": "1080x1920"
     }
   ]
 }
