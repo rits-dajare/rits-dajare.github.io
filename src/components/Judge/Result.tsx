@@ -27,13 +27,15 @@ export const Result: VFC<Props> = ({
     </Card>
   );
 
+  const showScore = isDajare || isForcedShowScore;
+
   const heading = <h1 className="font-bold mb-2">判定結果</h1>;
 
   if (isDajare === undefined) {
     return loading;
   }
 
-  if (!isDajare || !isForcedShowScore) {
+  if (!showScore) {
     return (
       <Card>
         {heading}
