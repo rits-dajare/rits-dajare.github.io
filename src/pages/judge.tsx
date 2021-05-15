@@ -1,39 +1,38 @@
-import { TwitterShareButton } from 'react-share';
 import { VFC, FormEvent, useCallback, useState } from 'react';
 
 import { Heading } from '../components/Heading';
+import { Result } from '../components/Judge/Result';
+import { Share } from '../components/Judge/Share';
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
-import { useJudge } from '../hooks/useJudge';
+import { useDajare } from '../hooks/useDajare';
 
 const JudgePage: VFC = () => {
-  const { result, error, judge, isLoading, isSubmitted } = useJudge();
   const [dajare, setDajare] = useState<string>('');
-  const [forceShowScore, setForceShowScore] = useState<boolean>(false);
 
-  const intScore = result.score && Math.round(result.score);
+  const [isForcedShowScore, setIsForcedShowScore] = useState<boolean>(false);
+  const forceShowScore = useCallback(() => setIsForcedShowScore(false), []);
 
-  const judgeText =
-    intScore !== undefined && result.isDajare
-      ? `スコア: ${'★'.repeat(intScore)}${'☆'.repeat(5 - intScore)}`
-      : '\nダジャレではありません';
+  const submitted = dajare !== '';
 
-  const shareText = [`ダジャレ: ${dajare}`, judgeText, ''].join('\n');
-
-  const handleSubmit = useCallback(
-    (event: FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      setForceShowScore(false);
-      judge(dajare);
-    },
-    [dajare, judge]
+  const judgeInfo = useDajare(
+    '/judge',
+    { dajare: dajare },
+    { enabled: submitted }
+  );
+  const evalInfo = useDajare(
+    '/eval',
+    { dajare: dajare },
+    { enabled: submitted }
   );
 
-  const handleChangeDajare = useCallback(
-    (event: FormEvent<HTMLInputElement>) =>
-      setDajare(event.currentTarget.value),
-    []
-  );
+  const integerScore = evalInfo.data?.score && Math.round(evalInfo.data?.score);
+
+  const handleSubmit = useCallback((event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsForcedShowScore(false);
+    setDajare(event.currentTarget.dajare.value);
+  }, []);
 
   return (
     <Layout>
@@ -43,84 +42,49 @@ const JudgePage: VFC = () => {
         path="/judge"
       />
       <Heading>ダジャレ判定</Heading>
-      <form className="flex gap-4" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="dajare"
-          id="input-dajare"
-          className="flex-grow px-4 py-2 rounded-sm bg-white dark:bg-black"
-          onChange={handleChangeDajare}
-          value={dajare}
-          placeholder="布団がふっとんだ"
-          disabled={isLoading}
-          required
-          minLength={4}
-          // eslint-disable-next-line jsx-a11y/no-autofocus
-          autoFocus
-        />
-        <button
-          type="submit"
-          className="px-4 py-2 bg-ritsumei text-white rounded-sm"
-        >
-          判定
-        </button>
-      </form>
 
-      {isSubmitted && (
-        <section className="bg-white dark:bg-off-black m-6 p-5 border dark:border-gray-900 rounded text-center">
-          {isLoading && '読み込み中'}
-          {!isLoading && error && (
-            <>
-              <h1 className="font-bold mb-2">エラーが発生しました</h1>
-              <p>
-                メッセージ: <pre className="font-mono">{error.message}</pre>
-              </p>
-            </>
-          )}
-          {!isLoading && !error && (
-            <>
-              <h1 className="font-bold mb-2">判定結果</h1>
-              {result.isDajare !== undefined &&
-                !result.isDajare &&
-                !forceShowScore && (
-                  <>
-                    <p className="mb-5">ダジャレではありません。</p>
-
-                    <button
-                      type="button"
-                      className="px-4 py-2 bg-ritsumei text-white rounded-sm"
-                      onClick={() => setForceShowScore(true)}
-                    >
-                      ダジャレとして判定する
-                    </button>
-                  </>
-                )}
-              {(result.isDajare || forceShowScore) && intScore !== undefined && (
-                <div role="img" aria-label={`星 5 つ中 ${intScore} つ`}>
-                  <span aria-hidden="true">
-                    {'★'.repeat(intScore)}
-                    {'☆'.repeat(5 - intScore)}
-                  </span>
-                </div>
-              )}
-            </>
-          )}
-        </section>
-      )}
-      {isSubmitted && !isLoading && !error && shareText && (
-        <div className="text-center">
-          <TwitterShareButton
-            title={shareText}
-            url="https://rits-dajare.github.io/judge"
-            via="rits_dajare"
-            hashtags={['ダジャレ判定']}
-            className="px-4 py-2 bg-twitter text-white rounded-sm"
-            resetButtonStyle={false}
+      <div className="flex flex-col gap-6">
+        <form className="flex gap-4" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="dajare"
+            id="input-dajare"
+            className="flex-grow px-4 py-2 rounded-sm bg-white dark:bg-black"
+            placeholder="布団がふっとんだ"
+            disabled={judgeInfo.isLoading || evalInfo.isLoading}
+            required
+            minLength={4}
+          />
+          <button
+            type="submit"
+            className="px-4 py-2 bg-ritsumei text-white rounded-sm"
           >
-            結果をツイート
-          </TwitterShareButton>
-        </div>
-      )}
+            判定
+          </button>
+        </form>
+
+        {(judgeInfo.error || evalInfo.error) && (
+          <section className="bg-white dark:bg-black m-6 p-5 border dark:border-gray-900 text-red-800 rounded text-center">
+            <p>エラーが発生しました</p>
+            {judgeInfo.error && <p>{`${judgeInfo.error}`}</p>}
+            {evalInfo.error && <p>{`${evalInfo.error}`}</p>}
+          </section>
+        )}
+
+        {submitted && (
+          <Result
+            integerScore={integerScore}
+            isDajare={judgeInfo.data?.is_dajare}
+            forceShowScore={forceShowScore}
+            isForcedShowScore={isForcedShowScore}
+          />
+        )}
+        <Share
+          integerScore={integerScore}
+          isDajare={judgeInfo.data?.is_dajare}
+          dajare={dajare}
+        />
+      </div>
     </Layout>
   );
 };
