@@ -1,6 +1,10 @@
 import '../styles/index.css';
-import type { AppProps } from 'next/app';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { VFC, useEffect } from 'react';
+
+import type { AppProps } from 'next/app';
+
+const queryClient = new QueryClient();
 
 const MyApp: VFC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
@@ -38,7 +42,11 @@ const MyApp: VFC<AppProps> = ({ Component, pageProps }) => {
     /* eslint-enable no-irregular-whitespace */
   }, []);
   // eslint-disable-next-line react/jsx-props-no-spreading
-  return <Component {...pageProps} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Component {...pageProps} />
+    </QueryClientProvider>
+  );
 };
 
 export default MyApp;
