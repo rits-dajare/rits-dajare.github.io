@@ -15,5 +15,3 @@ export const Anchor = forwardRef<HTMLAnchorElement, Props>(
 );
 
 Anchor.displayName = 'Anchor';
-
-

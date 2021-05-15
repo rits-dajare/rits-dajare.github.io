@@ -53,5 +53,3 @@ export const SEO: VFC<{ title: string; path: string; description: string }> = ({
     </>
   );
 };
-
-

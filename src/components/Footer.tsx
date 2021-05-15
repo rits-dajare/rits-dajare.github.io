@@ -5,5 +5,3 @@ export const Footer: VFC = () => (
     © 2021 立命館ダジャレサークル
   </footer>
 );
-
-

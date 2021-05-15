@@ -40,5 +40,3 @@ export const Header: VFC = () => (
     </Link>
   </header>
 );
-
-

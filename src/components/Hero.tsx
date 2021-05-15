@@ -78,5 +78,3 @@ export const Hero: VFC = () => (
     />
   </svg>
 );
-
-
