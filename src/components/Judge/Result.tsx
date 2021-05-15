@@ -33,7 +33,7 @@ export const Result: VFC<Props> = ({
     return loading;
   }
 
-  if (!isDajare || isForcedShowScore) {
+  if (!isDajare || !isForcedShowScore) {
     return (
       <Card>
         {heading}

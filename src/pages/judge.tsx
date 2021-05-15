@@ -11,7 +11,7 @@ const JudgePage: VFC = () => {
   const [dajare, setDajare] = useState<string>('');
 
   const [isForcedShowScore, setIsForcedShowScore] = useState<boolean>(false);
-  const forceShowScore = useCallback(() => setIsForcedShowScore(false), []);
+  const forceShowScore = useCallback(() => setIsForcedShowScore(true), []);
 
   const submitted = dajare !== '';
 
