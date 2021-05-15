@@ -36,8 +36,6 @@ export const fetchDajareAPI = async <
 ): Promise<APIResponses[Path]> => {
   const paramString = new URLSearchParams(params).toString();
 
-  console.log(`${baseUrl}${path}?${paramString}`);
-
   const result = await fetch(`${baseUrl}${path}?${paramString}`);
 
   const resultJSON = await result.json();
