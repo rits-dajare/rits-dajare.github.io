@@ -1,5 +1,5 @@
-import { VFC, FormEvent, useCallback, useState } from 'react';
 import { TwitterShareButton } from 'react-share';
+import { VFC, FormEvent, useCallback, useState } from 'react';
 
 import { Heading } from '../components/Heading';
 import { Layout } from '../components/Layout';
