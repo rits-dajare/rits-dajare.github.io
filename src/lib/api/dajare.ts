@@ -3,21 +3,21 @@ import { z } from 'zod';
 const baseUrl = 'https://api.abelab.dev/daas';
 
 export type APIParams = {
-  '/judge': {
+  '/judge/': {
     dajare: string;
   };
-  '/eval': {
+  '/eval/': {
     dajare: string;
   };
 };
 
 const APIResponseSchemes = {
-  '/judge': z.object({
+  '/judge/': z.object({
     status: z.union([z.literal('OK'), z.literal('error')]),
     message: z.string(),
     is_dajare: z.boolean(),
   }),
-  '/eval': z.object({
+  '/eval/': z.object({
     status: z.union([z.literal('OK'), z.literal('error')]),
     message: z.string(),
     score: z.number(),

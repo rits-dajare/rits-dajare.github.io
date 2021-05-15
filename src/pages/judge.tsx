@@ -16,12 +16,12 @@ const JudgePage: VFC = () => {
   const submitted = dajare !== '';
 
   const judgeInfo = useDajare(
-    '/judge',
+    '/judge/',
     { dajare: dajare },
     { enabled: submitted }
   );
   const evalInfo = useDajare(
-    '/eval',
+    '/eval/',
     { dajare: dajare },
     { enabled: submitted }
   );
