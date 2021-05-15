@@ -34,23 +34,21 @@ export const Result: VFC<Props> = ({
   }
 
   if (!isDajare || isForcedShowScore) {
-    <Card>
-      {heading}
+    return (
+      <Card>
+        {heading}
 
-      <div role="img" aria-label={`星 5 つ中 ${integerScore} つ`}>
-        <span aria-hidden="true">{renderStar}</span>
-      </div>
+        <p className="mb-5">{notDajareMessage}</p>
 
-      <p className="mb-5">{notDajareMessage}</p>
-
-      <button
-        type="button"
-        className="px-4 py-2 bg-ritsumei text-white rounded-sm"
-        onClick={forceShowScore}
-      >
-        ダジャレとして判定する
-      </button>
-    </Card>;
+        <button
+          type="button"
+          className="px-4 py-2 bg-ritsumei text-white rounded-sm"
+          onClick={forceShowScore}
+        >
+          ダジャレとして判定する
+        </button>
+      </Card>
+    );
   }
 
   if (integerScore === undefined) {
@@ -59,7 +57,7 @@ export const Result: VFC<Props> = ({
 
   return (
     <Card>
-      <h1 className="font-bold mb-2">判定結果</h1>
+      {heading}
       <div role="img" aria-label={`星 5 つ中 ${integerScore} つ`}>
         <span aria-hidden="true">{renderStar(integerScore)}</span>
       </div>
