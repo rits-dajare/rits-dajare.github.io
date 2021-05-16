@@ -29,7 +29,7 @@ export const Result: VFC<Props> = ({
 
   const showScore = isDajare || isForcedShowScore;
 
-  const heading = <h1 className="font-bold mb-2">判定結果</h1>;
+  const heading = <h2 className="font-bold mb-2">判定結果</h2>;
 
   if (isDajare === undefined) {
     return loading;
