@@ -25,6 +25,7 @@ export const Share: VFC<Props> = ({ dajare, isDajare, integerScore }) => {
         hashtags={['ダジャレ判定']}
         className="px-4 py-2 bg-twitter text-white rounded-sm"
         resetButtonStyle={false}
+        aria-label="結果をツイート"
       >
         結果をツイート
       </TwitterShareButton>

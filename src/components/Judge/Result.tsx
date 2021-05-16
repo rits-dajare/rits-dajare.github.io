@@ -29,7 +29,7 @@ export const Result: VFC<Props> = ({
 
   const showScore = isDajare || isForcedShowScore;
 
-  const heading = <h1 className="font-bold mb-2">判定結果</h1>;
+  const heading = <h2 className="font-bold mb-2">判定結果</h2>;
 
   if (isDajare === undefined) {
     return loading;
@@ -60,7 +60,7 @@ export const Result: VFC<Props> = ({
   return (
     <Card>
       {heading}
-      <div role="img" aria-label={`星 5 つ中 ${integerScore} つ`}>
+      <div role="img" aria-label={`星 5 点満点中で ${integerScore} 点`}>
         <span aria-hidden="true">{renderStar(integerScore)}</span>
       </div>
     </Card>

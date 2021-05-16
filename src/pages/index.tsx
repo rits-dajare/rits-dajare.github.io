@@ -16,7 +16,9 @@ const IndexPage: NextPage = () => (
       path="/"
     />
     <header className="max-w-2xl mx-auto">
-      <Hero />
+      <h1>
+        <Hero />
+      </h1>
     </header>
     <Layout hasHeader={false} fullHeight={false}>
       <section>
