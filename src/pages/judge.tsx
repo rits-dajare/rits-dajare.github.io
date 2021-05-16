@@ -45,6 +45,9 @@ const JudgePage: VFC = () => {
 
       <div className="flex flex-col gap-6">
         <form className="flex gap-4" onSubmit={handleSubmit}>
+          <label htmlFor="input-dajare" className="sr-only">
+            ダジャレ入力欄
+          </label>
           <input
             type="text"
             name="dajare"
