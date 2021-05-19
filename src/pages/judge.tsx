@@ -41,7 +41,7 @@ const JudgePage: VFC = () => {
         description="ダジャレスコアを判定します"
         path="/judge"
       />
-      <Heading headingLevel="h1">ダジャレ判定</Heading>
+      <Heading headingLevel={1}>ダジャレ判定</Heading>
 
       <div className="flex flex-col gap-6">
         <form className="flex gap-4" onSubmit={handleSubmit}>
