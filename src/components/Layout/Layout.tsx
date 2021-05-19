@@ -2,19 +2,14 @@ import { FC } from 'react';
 
 import { Footer } from './Footer';
 import { Header } from './Header';
+import { Navigation } from './Navigation';
 
 export const Layout: FC<{
-  hasHeader?: boolean;
-  hasFooter?: boolean;
-  fullHeight?: boolean;
-}> = ({ children, hasHeader = true, hasFooter = true, fullHeight = true }) => (
-  <div
-    className={`max-w-2xl mx-auto flex flex-col px-3 ${
-      fullHeight ? 'min-h-screen' : ''
-    }`}
-  >
-    {hasHeader && <Header />}
-    <main className="flex-grow">{children}</main>
-    {hasFooter && <Footer />}
+  headerChild?: JSX.Element;
+}> = ({ children, headerChild = <Navigation /> }) => (
+  <div className="max-w-2xl mx-auto flex flex-col min-h-screen">
+    <Header>{headerChild}</Header>
+    <main className="flex-grow px-3">{children}</main>
+    <Footer />
   </div>
 );

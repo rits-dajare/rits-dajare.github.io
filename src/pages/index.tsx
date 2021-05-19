@@ -15,12 +15,13 @@ const IndexPage: NextPage = () => (
       description="立命館ダジャレサークル公式 Web サイト"
       path="/"
     />
-    <header className="max-w-2xl mx-auto">
-      <h1>
-        <Hero />
-      </h1>
-    </header>
-    <Layout hasHeader={false} fullHeight={false}>
+    <Layout
+      headerChild={
+        <h1>
+          <Hero />
+        </h1>
+      }
+    >
       <section>
         <p className="text-center my-10">
           <Link href="/judge" passHref>
