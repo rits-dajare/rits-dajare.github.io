@@ -15,7 +15,7 @@
     "check:lint": "yarn eslint src"
   },
   "dependencies": {
-    "next": "10.2.0",
+    "next": "10.2.1",
     "next-pwa": "5.2.21",
     "next-seo": "4.24.0",
     "react": "17.0.2",
