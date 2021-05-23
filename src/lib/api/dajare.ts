@@ -13,13 +13,9 @@ export type APIParams = {
 
 const APIResponseSchemes = {
   '/judge': z.object({
-    status: z.union([z.literal('OK'), z.literal('error')]),
-    message: z.string(),
     is_dajare: z.boolean(),
   }),
   '/eval': z.object({
-    status: z.union([z.literal('OK'), z.literal('error')]),
-    message: z.string(),
     score: z.number(),
   }),
 };
@@ -44,10 +40,6 @@ export const fetchDajareAPI = async <
   // @ts-expect-error
   const response: APIResponses[Path] =
     APIResponseSchemes[path].parse(resultJSON);
-
-  if (response.status !== 'OK') {
-    throw new Error(resultJSON.message);
-  }
 
   return response;
 };
