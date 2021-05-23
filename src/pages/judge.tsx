@@ -15,16 +15,8 @@ const JudgePage: VFC = () => {
 
   const submitted = dajare !== '';
 
-  const judgeInfo = useDajare(
-    '/judge',
-    { dajare: dajare },
-    { enabled: submitted }
-  );
-  const evalInfo = useDajare(
-    '/eval',
-    { dajare: dajare },
-    { enabled: submitted }
-  );
+  const judgeInfo = useDajare('/judge', { dajare }, { enabled: submitted });
+  const evalInfo = useDajare('/eval', { dajare }, { enabled: submitted });
 
   const integerScore = evalInfo.data?.score && Math.round(evalInfo.data?.score);
 
