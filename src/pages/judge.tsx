@@ -59,10 +59,10 @@ const JudgePage: VFC = () => {
         </form>
 
         {(judgeInfo.error || evalInfo.error) && (
-          <section className="bg-white dark:bg-black p-5 border dark:border-gray-900 text-red-800 rounded text-center">
-            <p>エラーが発生しました</p>
-            {judgeInfo.error && <p>{`${judgeInfo.error}`}</p>}
-            {evalInfo.error && <p>{`${evalInfo.error}`}</p>}
+          <section className="bg-white dark:bg-black p-5 border dark:border-gray-900 text-red-800 rounded">
+            <h2 className="text-center font-bold">エラーが発生しました</h2>
+            {judgeInfo.error && <pre>{`${judgeInfo.error}`}</pre>}
+            {evalInfo.error && <pre>{`${evalInfo.error}`}</pre>}
           </section>
         )}
 
