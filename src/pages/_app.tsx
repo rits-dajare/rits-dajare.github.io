@@ -1,8 +1,7 @@
 import '../styles/index.css';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { VFC, useEffect } from 'react';
-
 import type { AppProps } from 'next/app';
+import { VFC, useEffect } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const queryClient = new QueryClient();
 

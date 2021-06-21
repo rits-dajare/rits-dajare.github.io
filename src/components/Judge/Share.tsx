@@ -1,5 +1,5 @@
-import { TwitterShareButton } from 'react-share';
 import { VFC } from 'react';
+import { TwitterShareButton } from 'react-share';
 
 import { renderShareText } from '../../lib/judge/text';
 
