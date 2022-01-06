@@ -5,11 +5,7 @@ module.exports = {
     // base
     'eslint:recommended',
 
-    // React A11y
-    'plugin:jsx-a11y/recommended',
-
     // Next.js
-    'next',
     'next/core-web-vitals',
 
     // TypeScript
@@ -36,14 +32,6 @@ module.exports = {
   rules: {
     'import/prefer-default-export': 'off',
     'react/destructuring-assignment': 'off',
-
-    'jsx-a11y/anchor-is-valid': [
-      'error',
-      {
-        components: ['Link'],
-        aspects: ['noHref', 'invalidHref', 'preferButton'],
-      },
-    ],
 
     // restrict order of imports
     'import/order': [
