@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const baseUrl = 'https://api.abelab.dev/daas';
+const baseUrl = 'https://daas.averak.net';
 
 export type APIParams = {
   '/judge': {
